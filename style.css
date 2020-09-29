@@ -45,6 +45,10 @@ body {
     transform: perspective(500px) rotateY(180deg);
     padding: 20px;
 }
+.container .cards .face.back img {
+    opacity: 0;
+    visibility: hidden;
+}
 .container .cards .face.back .coinImg {
     width: 100%;
     height: 100%;
@@ -75,4 +79,8 @@ body {
 }
 .container .cards.active .face.back {
     transform: perspective(500px) rotateY(360deg);
+}
+.container .cards.active .face.back img {
+    visibility: visible;
+    opacity: 1;
 }
