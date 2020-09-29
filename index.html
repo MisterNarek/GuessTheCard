@@ -62,6 +62,11 @@
             
         $('.face.back').eq(randomNum).append("<img class='coinImg' src='coin.png'>");
         $('.coinImg').parent().parent().click(function() {
+        cards.forEach(function (key) {
+            key.addEventListener("click", function() {
+                this.classList.remove("active");
+            });
+        });
                 setTimeout(function() {
                     alert("You Win!");
                     location.reload();

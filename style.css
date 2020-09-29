@@ -84,3 +84,51 @@ body {
     visibility: visible;
     opacity: 1;
 }
+
+
+
+@media screen and (max-width: 800px) {
+    .container .cards {
+        width: 130px;
+        height: 180px;
+    }
+    .container {
+        width: 424px;
+    }
+}
+@media screen and (max-width: 500px) {
+    .container .cards {
+        width: 100px;
+        height: 150px;
+    }
+    .container {
+        width: 333px;
+    }
+}
+@media screen and (max-width: 350px) {
+    .container .cards {
+        width: 80px;
+        height: 130px;
+    }
+    .container {
+        width: 273px;
+    }
+}
+@media screen and (max-width: 280px) {
+    .container .cards {
+        width: 80px;
+        height: 130px;
+    }
+    .container {
+        width: 183px;
+    }
+}
+@media screen and (max-width: 190px) {
+    .container .cards {
+        width: 80px;
+        height: 130px;
+    }
+    .container {
+        width: 93px;
+    }
+}
