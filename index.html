@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    
+    <div class="container">
+        <div class="cards">
+            <div class="face front"><img src="card-face.jpg" alt=""></div>
+            <div class="face back"></div>
+        </div>
+        <div class="cards">
+            <div class="face front"><img src="card-face.jpg" alt=""></div>
+            <div class="face back"></div>
+        </div>
+        <div class="cards">
+            <div class="face front"><img src="card-face.jpg" alt=""></div>
+            <div class="face back"></div>
+        </div>
+        <div class="cards">
+            <div class="face front"><img src="card-face.jpg" alt=""></div>
+            <div class="face back"></div>
+        </div>
+        <div class="cards">
+            <div class="face front"><img src="card-face.jpg" alt=""></div>
+            <div class="face back"></div>
+        </div>
+        <div class="cards">
+            <div class="face front"><img src="card-face.jpg" alt=""></div>
+            <div class="face back"></div>
+        </div>
+        <div class="cards">
+            <div class="face front"><img src="card-face.jpg" alt=""></div>
+            <div class="face back"></div>
+        </div>
+        <div class="cards">
+            <div class="face front"><img src="card-face.jpg" alt=""></div>
+            <div class="face back"></div>
+        </div>
+        <div class="cards">
+            <div class="face front"><img src="card-face.jpg" alt=""></div>
+            <div class="face back"></div>
+        </div>
+    </div>
+
+    <script src="jquery.min.js"></script>
+    <script type="text/javascript">
+        var cards = document.querySelectorAll(".container .cards");
+        cards.forEach(function (key) {
+            key.addEventListener("click", function() {
+                this.classList.toggle("active");
+            });
+            var cardBack = document.querySelector("face.back");
+        });
+
+        var randomNum = Math.floor(Math.random() * 9);
+            console.log(randomNum);
+            
+        $('.face.back').eq(randomNum).append("<img class='coinImg' src='coin.png'>");
+        $('.coinImg').parent().parent().click(function() {
+                setTimeout(function() {
+                    alert("You Win!");
+                    location.reload();
+                }, 1200);
+            });
+
+    </script>
+</body>
+</html>
