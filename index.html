@@ -7,7 +7,6 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    
     <div class="container">
         <div class="cards">
             <div class="face front"><img src="card-face.jpg" alt=""></div>
@@ -46,15 +45,30 @@
             <div class="face back"></div>
         </div>
     </div>
+    <div class="cardsOpeningCount">Opened Cards - 0/3</div>
+    <div class="gameVersion">Beta v.0.4</div>
 
     <script src="jquery.min.js"></script>
     <script type="text/javascript">
         var cards = document.querySelectorAll(".container .cards");
+        var cardOpenCount = document.querySelectorAll(".cardOpenCount");
+        var openedCardsCounter = 0;
+        var cardsOpeningCount = document.getElementsByClassName("cardsOpeningCount")[0];
         cards.forEach(function (key) {
             key.addEventListener("click", function() {
-                this.classList.toggle("active");
+                var cardToggle = this.classList.toggle("active");
+                if (cardToggle) {
+                    openedCardsCounter++;
+                    cardsOpeningCount.innerHTML = "Opened Cards - " + openedCardsCounter + "/3";
+                }
+                if (openedCardsCounter >= 3 && !($('.coinImg').parent().parent().hasClass("active")) ) {
+                    setTimeout(function() {
+                        alert("You Lose!");
+                        location.reload();
+                    }, 500);
+                    
+                }
             });
-            var cardBack = document.querySelector("face.back");
         });
 
         var randomNum = Math.floor(Math.random() * 9);
