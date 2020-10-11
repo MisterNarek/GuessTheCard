@@ -17,3 +17,7 @@ Added counter of opened Cards, updated game logic, fixed many bugs.
 **Beta v.0.5**
 
 Added bonuses mechanic.
+
+**Beta v.0.6**
+
+Fixed Some Bugs
