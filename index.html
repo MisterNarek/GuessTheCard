@@ -50,31 +50,29 @@
 
     <script src="jquery.min.js"></script>
     <script type="text/javascript">
-        var cards = document.querySelectorAll(".container .cards");
-        var cardOpenCount = document.querySelectorAll(".cardOpenCount");
-        var openedCardsCounter = 0;
-        var cardsOpeningCount = document.getElementsByClassName("cardsOpeningCount")[0];
-        cards.forEach(function (key) {
-            key.addEventListener("click", function() {
-                var cardToggle = this.classList.toggle("active");
-                if (cardToggle) {
-                    openedCardsCounter++;
-                    cardsOpeningCount.innerHTML = "Opened Cards - " + openedCardsCounter + "/3";
-                }
-                if (openedCardsCounter >= 3 && !($('.coinImg').parent().parent().hasClass("active")) ) {
-                    setTimeout(function() {
-                        alert("You Lose!");
-                        location.reload();
-                    }, 500);
-                    
-                }
-            });
-        });
+        var cards = document.querySelectorAll(".container .cards"),
+            cardOpenCount = document.querySelectorAll(".cardOpenCount"),
+            openedCardsCounter = 0,
+            maxOpenCards = 4,
+            cardsOpeningCount = document.getElementsByClassName("cardsOpeningCount")[0];
 
-        var randomNum = Math.floor(Math.random() * 9);
+        var randomNum = Math.floor(Math.random() * 9),
+            randomBonusNum = Math.floor(Math.random() * 9);
+        if (randomNum == randomBonusNum) {
+                    if (randomBonusNum == 0) {
+                        randomBonusNum++;
+                    } else if (randomBonusNum == 8) {
+                        randomBonusNum--;
+                    } else {
+                        randomBonusNum++;
+                    }
+                }
             console.log(randomNum);
+            console.log(randomBonusNum);
             
         $('.face.back').eq(randomNum).append("<img class='coinImg' src='coin.png'>");
+            $('.face.back').eq(randomBonusNum).append("<img class='bonusImg' src='bonus.png'>");
+
         $('.coinImg').parent().parent().click(function() {
         cards.forEach(function (key) {
             key.addEventListener("click", function() {
@@ -86,7 +84,34 @@
                     location.reload();
                 }, 1200);
             });
+            var randomBonus = Math.ceil(Math.random() * 2) + 1;
+            $('.bonusImg').parent().parent().click(function() {
+                setTimeout(function() {
+                    alert("Bonus +" + randomBonus);
+                    maxOpenCards += randomBonus;
+                    cardsOpeningCount.innerHTML = "Opened Cards - " + openedCardsCounter + "/" + maxOpenCards;
+                }, 1200);
+            });
 
+            
+
+            cardsOpeningCount.innerHTML = "Opened Cards - " + openedCardsCounter + "/" + maxOpenCards;
+        cards.forEach(function (key) {
+            key.addEventListener("click", function() {
+                var cardToggle = this.classList.toggle("active");
+                if (cardToggle) {
+                    openedCardsCounter++;
+                    cardsOpeningCount.innerHTML = "Opened Cards - " + openedCardsCounter + "/" + maxOpenCards;
+                }
+                if (openedCardsCounter >= maxOpenCards && !($('.coinImg').parent().parent().hasClass("active")) && !($('.bonusImg').parent().parent().hasClass("active")) ) {
+                    setTimeout(function() {
+                        alert("You Lose!");
+                        location.reload();
+                    }, 500);
+                    
+                }
+            });
+        });
     </script>
 </body>
 </html>

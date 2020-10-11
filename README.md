@@ -13,3 +13,7 @@ Added responsivennes and updated game logic. After opening the correct card, oth
 **Beta v.0.4**
 
 Added counter of opened Cards, updated game logic, fixed many bugs.
+
+**Beta v.0.5**
+
+Added bonuses mechanic.
