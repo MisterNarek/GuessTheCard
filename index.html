@@ -3,8 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Guess the card</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="coin.png">
 </head>
 <body>
     <div class="container">
@@ -47,10 +48,14 @@
     </div>
     <div class="cardsOpeningCount">Opened Cards - 0/3</div>
     <div class="gameVersion">Beta v.0.6</div>
+    <div class="cl_container">
+        <div class="closed">This project is closed</div>
+    </div>
+    
 
     <script src="jquery.min.js"></script>
     <script type="text/javascript">
-        var cards = document.querySelectorAll(".container .cards"),
+        /* var cards = document.querySelectorAll(".container .cards"),
             cardOpenCount = document.querySelectorAll(".cardOpenCount"),
             openedCardsCounter = 0,
             maxOpenCards = 4,
@@ -100,6 +105,7 @@
             key.addEventListener("click", function() {
                 var cardToggle = this.classList.toggle("active");
                 if (cardToggle) {
+                    // by Narek Avanesyan
                     openedCardsCounter++;
                     cardsOpeningCount.innerHTML = "Opened Cards - " + openedCardsCounter + "/" + maxOpenCards;
                 }
@@ -111,7 +117,7 @@
                     
                 }
             });
-        });
+        }); */
     </script>
 </body>
 </html>
